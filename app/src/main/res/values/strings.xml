@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">Cafeterias ITSCH</string>
+    <string name="prefs_file">mx.tecnm.cdhidalgo.cafeterias_itsch.PREFERENCE_FILE_KEY</string>
+
+    <string name="ingresar">Ingresar</string>
+    <string name="ingresar_google">Ingresar con Google</string>
+    <string name="ingresar_correo">Ingresar con Correo</string>
+    <string name="ingresar_anonimo">Ingresar con usuario anonimo</string>
+
+    <string name="nombre">Ingrese su nombre</string>
+    <string name="apellidos">Ingrese sus apellidos</string>
+    <string name="correo">Ingrese su correo</string>
+    <string name="correo_rep">Repita su correo</string>
+    <string name="contraseña">Ingrese su contraseña</string>
+    <string name="contraseña_rep">Repita su contraseña</string>
+    <string name="registrarse">Registrarse</string>
+
+    <string name="registrar">Registrar</string>
+
+    <string name="con_cuenta">¿Ya tienes cuenta? ¡Toca aqui!</string>
+    <string name="sin_cuenta">¿No tienes cuenta? ¡Toca aqui!</string>
+
+    <string name="cafeteria1">Cafeteria 1</string>
+    <string name="cafeteria2">Cafeteria 2</string>
+</resources>
