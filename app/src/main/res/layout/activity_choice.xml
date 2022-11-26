@@ -51,4 +51,16 @@
             tools:srcCompat="@tools:sample/avatars" />
 
     </LinearLayout>
+
+    <Button
+        android:id="@+id/btnChoiceSignOutXML"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:text="@string/cerrar_sesion"
+        app:icon="@drawable/ic_baseline_person_24"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/llChoiceXML" />
 </androidx.constraintlayout.widget.ConstraintLayout>

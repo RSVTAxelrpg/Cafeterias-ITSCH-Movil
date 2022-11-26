@@ -10,6 +10,7 @@ import android.widget.EditText
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.ktx.Firebase
@@ -75,14 +76,20 @@ class SignIn : AppCompatActivity() {
                 showAlert("Las contraseñas no son iguales")
             } else {
 
-                val name = etName.text.toString().trimStart().trimEnd()
-                val lastname = etLastName.text.toString().trimStart().trimEnd()
+                val name = etName.text.toString().trimStart().trimEnd().toLowerCase()
+                val lastname = etLastName.text.toString().trimStart().trimEnd().toLowerCase()
                 val email = etEmail.text.toString().trimStart().trimEnd()
                 val password = etPassword.text.toString().trimStart().trimEnd()
 
                 auth.createUserWithEmailAndPassword(
                     email, password
                 ).addOnCompleteListener {
+                    val user = Firebase.auth.currentUser
+
+                    if (user != null) {
+                        user.sendEmailVerification()
+                    }
+
                     val prefs =
                         getSharedPreferences(
                             getString(R.string.prefs_file),
