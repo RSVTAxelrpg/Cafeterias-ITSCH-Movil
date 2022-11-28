@@ -23,4 +23,10 @@
 
     <string name="cafeteria1">Cafeteria 1</string>
     <string name="cafeteria2">Cafeteria 2</string>
+
+    <string name="Suma">+</string>
+    <string name="Resta">-</string>
+
+    <string name="revisar_pedido">Revisar pedido</string>
+    <string name="total">Total: </string>
 </resources>

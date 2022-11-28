@@ -30,7 +30,15 @@
             android:id="@+id/ivChoice1XML"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:clickable="true"
+            android:contentDescription="@string/cafeteria1"
             tools:srcCompat="@tools:sample/avatars" />
+
+        <Button
+            android:id="@+id/btnChoice1XML"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/cafeteria1" />
 
         <Space
             android:layout_width="match_parent"

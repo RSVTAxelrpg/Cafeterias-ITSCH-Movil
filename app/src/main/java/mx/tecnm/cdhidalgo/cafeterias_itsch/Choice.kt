@@ -10,6 +10,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 
+private lateinit var btnChoice1: Button
 private lateinit var btnSignOut: Button
 
 class Choice : AppCompatActivity() {
@@ -17,6 +18,7 @@ class Choice : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_choice)
 
+        btnChoice1 = findViewById(R.id.btnChoice1XML)
         btnSignOut = findViewById(R.id.btnChoiceSignOutXML)
 
         setup()
@@ -35,6 +37,12 @@ class Choice : AppCompatActivity() {
     }
 
     private fun setup() {
+
+        btnChoice1.setOnClickListener {
+
+            val intent = Intent(this, Cafeteria1::class.java)
+            startActivity(intent)
+        }
 
         btnSignOut.setOnClickListener {
 

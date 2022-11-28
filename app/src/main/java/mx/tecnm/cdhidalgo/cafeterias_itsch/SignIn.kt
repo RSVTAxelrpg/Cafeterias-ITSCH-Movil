@@ -100,9 +100,9 @@ class SignIn : AppCompatActivity() {
 
                     db.collection("users").document(email).set(
                         hashMapOf(
-                            "Nombre" to name,
-                            "Apellido" to lastname,
-                            "Correo" to email,
+                            "nombre" to name,
+                            "apellido" to lastname,
+                            "correo" to email,
                         )
                     )
 

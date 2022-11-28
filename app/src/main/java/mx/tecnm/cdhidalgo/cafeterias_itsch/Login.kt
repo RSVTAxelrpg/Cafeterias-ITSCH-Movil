@@ -118,9 +118,9 @@ class Login : AppCompatActivity() {
 
                         db.collection("users").document(account.email!!).set(
                             hashMapOf(
-                                "Nombre" to (account.givenName?.toLowerCase() ?: ""),
-                                "Apellido" to (account.familyName?.toLowerCase() ?: ""),
-                                "Correo" to account.email,
+                                "nombre" to (account.givenName?.toLowerCase() ?: ""),
+                                "apellido" to (account.familyName?.toLowerCase() ?: ""),
+                                "correo" to account.email,
                             )
                         )
 
