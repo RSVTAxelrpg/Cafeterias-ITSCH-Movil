@@ -66,40 +66,20 @@
             android:layout_height="match_parent"
             android:orientation="horizontal">
 
-            <Button
-                android:id="@+id/btnListViewSubtractXML"
+            <TextView
+                android:id="@+id/textView3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/Resta"
-                android:textSize="20sp" />
-
-            <Space
-                android:layout_width="25dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1" />
+                android:text="Cantidad: "
+                android:textSize="24sp"
+                android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/tvListViewAmountXML"
-                android:layout_width="41dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="0"
-                android:textAlignment="center"
-                android:textSize="24sp" />
-
-            <Space
-                android:layout_width="25dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1" />
-
-            <Button
-                android:id="@+id/btnListViewAddXML"
+                android:id="@+id/tvListCheckAmountXML"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/Suma"
-                android:textSize="20sp" />
+                android:text="Prueba"
+                android:textSize="24sp" />
         </LinearLayout>
 
     </LinearLayout>

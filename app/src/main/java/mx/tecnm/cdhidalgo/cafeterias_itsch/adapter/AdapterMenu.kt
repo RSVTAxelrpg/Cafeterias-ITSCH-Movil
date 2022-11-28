@@ -4,7 +4,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
-import android.widget.CheckBox
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import mx.tecnm.cdhidalgo.cafeterias_itsch.R
@@ -29,6 +28,7 @@ class AdapterMenu(private val menuList: ArrayList<ModelMenu>) :
         holder.precio.text = menu.precio.toString()
 
         holder.btnAdd.setOnClickListener {
+
             var num = 0
             num = holder.cantidad.text.toString().toInt()
             num++
@@ -36,6 +36,19 @@ class AdapterMenu(private val menuList: ArrayList<ModelMenu>) :
 
             menu.cantidad = holder.cantidad.text.toString().toInt()
             holder.cantidad.text = menu.cantidad.toString()
+        }
+
+        holder.btnSubtract.setOnClickListener {
+
+            if (holder.cantidad.text.toString().toInt() >= 1) {
+                var num = 0
+                num = holder.cantidad.text.toString().toInt()
+                num--
+                holder.cantidad.text = num.toString()
+
+                menu.cantidad = holder.cantidad.text.toString().toInt()
+                holder.cantidad.text = menu.cantidad.toString()
+            }
         }
 
         /*holder.checkBox.setOnCheckedChangeListener { button, b ->
@@ -57,9 +70,7 @@ class AdapterMenu(private val menuList: ArrayList<ModelMenu>) :
 
         var cantidad: TextView = itemView.findViewById(R.id.tvListViewAmountXML)
 
-        //var checkBox: CheckBox = itemView.findViewById(R.id.checkBox)
-
-        var nombre: TextView = itemView.findViewById(R.id.tvListViewNameXML)
-        var precio: TextView = itemView.findViewById(R.id.tvListViewPriceXML)
+        var nombre: TextView = itemView.findViewById(R.id.tvListCheckNameXML)
+        var precio: TextView = itemView.findViewById(R.id.tvListCheckPriceXML)
     }
 }

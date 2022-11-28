@@ -27,6 +27,7 @@
     <string name="Suma">+</string>
     <string name="Resta">-</string>
 
+    <string name="realizar_pedido">Realizar pedido</string>
     <string name="revisar_pedido">Revisar pedido</string>
     <string name="total">Total: </string>
 </resources>

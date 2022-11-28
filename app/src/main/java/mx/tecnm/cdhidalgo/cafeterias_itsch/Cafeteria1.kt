@@ -1,9 +1,9 @@
 package mx.tecnm.cdhidalgo.cafeterias_itsch
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
-import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -51,7 +51,6 @@ class Cafeteria1 : AppCompatActivity() {
         db = FirebaseFirestore.getInstance()
         db.collection("menu2").get().addOnSuccessListener {
 
-            var number = 0
             for (document in it) {
                 menuArrayList.add(
                     0, ModelMenu(
@@ -62,8 +61,6 @@ class Cafeteria1 : AppCompatActivity() {
                 )
             }
 
-
-
             adapterMenu.notifyDataSetChanged()
         }
 
@@ -71,23 +68,19 @@ class Cafeteria1 : AppCompatActivity() {
 
             var total = 0
 
-            for (i in menuArrayList.indices){
+            for (i in menuArrayList.indices) {
                 if (menuArrayList[i].cantidad >= 1) {
                     total += menuArrayList[i].precio * menuArrayList[i].cantidad
                 }
             }
 
             println(total)
-        }
-    }
 
-    private fun showAlert(alert: String) {
-        val builder = AlertDialog.Builder(this)
-        builder.setTitle("Error")
-        builder.setMessage(alert)
-        builder.setPositiveButton("Aceptar", null)
-        val dialog: AlertDialog = builder.create()
-        dialog.show()
+            val intent = Intent(this, Check::class.java)
+            intent.putExtra("list", menuArrayList)
+            intent.putExtra("total", total)
+            startActivity(intent)
+        }
     }
 }
 
