@@ -31,8 +31,6 @@ class Cafeteria1 : AppCompatActivity() {
 
         btnCheck = findViewById(R.id.btnCafeteria1CheckXML)
 
-        tvTotal = findViewById(R.id.tvCafeteria1TotalXML)
-
         recyclerView = findViewById(R.id.rvCafeteria1XML)
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.setHasFixedSize(true)
@@ -50,8 +48,6 @@ class Cafeteria1 : AppCompatActivity() {
 
     private fun setData() {
 
-        var total = 0
-
         db = FirebaseFirestore.getInstance()
         db.collection("menu2").get().addOnSuccessListener {
 
@@ -61,13 +57,27 @@ class Cafeteria1 : AppCompatActivity() {
                     0, ModelMenu(
                         document.data.get("nombre").toString(),
                         document.data.get("precio").toString().toInt(),
-                        false
+                        0
                     )
                 )
-                menuArrayList[number].Check = true
             }
 
+
+
             adapterMenu.notifyDataSetChanged()
+        }
+
+        btnCheck.setOnClickListener {
+
+            var total = 0
+
+            for (i in menuArrayList.indices){
+                if (menuArrayList[i].cantidad >= 1) {
+                    total += menuArrayList[i].precio * menuArrayList[i].cantidad
+                }
+            }
+
+            println(total)
         }
     }
 

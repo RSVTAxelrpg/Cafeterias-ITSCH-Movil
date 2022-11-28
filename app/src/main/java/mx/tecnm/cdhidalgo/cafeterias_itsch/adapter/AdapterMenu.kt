@@ -28,22 +28,21 @@ class AdapterMenu(private val menuList: ArrayList<ModelMenu>) :
         holder.nombre.text = menu.nombre
         holder.precio.text = menu.precio.toString()
 
-        /*holder.btnAdd.setOnClickListener {
+        holder.btnAdd.setOnClickListener {
             var num = 0
             num = holder.cantidad.text.toString().toInt()
             num++
             holder.cantidad.text = num.toString()
 
-            println(holder.cantidad.text)
+            menu.cantidad = holder.cantidad.text.toString().toInt()
+            holder.cantidad.text = menu.cantidad.toString()
+        }
 
-            menu.Cantidad = holder.cantidad.text.toString().toInt()
-        }*/
-
-        holder.checkBox.setOnCheckedChangeListener { button, b ->
+        /*holder.checkBox.setOnCheckedChangeListener { button, b ->
             menu.Check = button.isChecked
         }
 
-        holder.checkBox.isChecked = menu.Check
+        holder.checkBox.isChecked = menu.Check*/
     }
 
     override fun getItemCount(): Int {
@@ -53,18 +52,14 @@ class AdapterMenu(private val menuList: ArrayList<ModelMenu>) :
 
     class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-        /*val btnAdd: Button = itemView.findViewById(R.id.btnListViewAddXML)
+        val btnAdd: Button = itemView.findViewById(R.id.btnListViewAddXML)
         val btnSubtract: Button = itemView.findViewById(R.id.btnListViewSubtractXML)
 
-        var cantidad: TextView = itemView.findViewById(R.id.tvListViewAmountXML)*/
+        var cantidad: TextView = itemView.findViewById(R.id.tvListViewAmountXML)
 
-        var checkBox: CheckBox = itemView.findViewById(R.id.checkBox)
+        //var checkBox: CheckBox = itemView.findViewById(R.id.checkBox)
 
         var nombre: TextView = itemView.findViewById(R.id.tvListViewNameXML)
         var precio: TextView = itemView.findViewById(R.id.tvListViewPriceXML)
-    }
-
-    fun prueba() {
-
     }
 }
