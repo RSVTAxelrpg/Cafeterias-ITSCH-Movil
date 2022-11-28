@@ -7,17 +7,53 @@
     tools:context=".Check">
 
     <LinearLayout
-        android:id="@+id/llCheckXML"
+        android:id="@+id/linearLayout2"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="20dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="20dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/llCheckXML"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/total"
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/tvCheckTotalXML"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="0"
+            android:textSize="24sp" />
+
+        <Button
+            android:id="@+id/btnCheckMakeOrderXML"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/realizar_pedido" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/llCheckXML"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvCheckXML"
@@ -25,33 +61,6 @@
             android:layout_height="wrap_content">
 
         </androidx.recyclerview.widget.RecyclerView>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/textView2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/total"
-                android:textSize="24sp" />
-
-            <TextView
-                android:id="@+id/tvCheckTotalXML"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="0"
-                android:textSize="24sp" />
-
-            <Button
-                android:id="@+id/button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/realizar_pedido" />
-        </LinearLayout>
 
     </LinearLayout>
 

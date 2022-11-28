@@ -29,5 +29,6 @@
 
     <string name="realizar_pedido">Realizar pedido</string>
     <string name="revisar_pedido">Revisar pedido</string>
+    <string name="ver_pedidos">Ver pedidos</string>
     <string name="total">Total: </string>
 </resources>

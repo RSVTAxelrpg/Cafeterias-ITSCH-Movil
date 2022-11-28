@@ -8,8 +8,8 @@ import androidx.recyclerview.widget.RecyclerView
 import mx.tecnm.cdhidalgo.cafeterias_itsch.R
 import mx.tecnm.cdhidalgo.cafeterias_itsch.model.ModelMenu
 
-class AdapterMenuCheck(private val menuList: ArrayList<ModelMenu>) :
-    RecyclerView.Adapter<AdapterMenuCheck.MyViewHolder>() {
+class AdapterCheck(private val menuList: ArrayList<ModelMenu>) :
+    RecyclerView.Adapter<AdapterCheck.MyViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
 
@@ -26,6 +26,7 @@ class AdapterMenuCheck(private val menuList: ArrayList<ModelMenu>) :
         holder.cantidad.text = menu.cantidad.toString()
         holder.nombre.text = menu.nombre
         holder.precio.text = menu.precio.toString()
+        holder.total.text = menu.total.toString()
     }
 
     override fun getItemCount(): Int {
@@ -35,8 +36,9 @@ class AdapterMenuCheck(private val menuList: ArrayList<ModelMenu>) :
 
     class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-        var cantidad: TextView = itemView.findViewById(R.id.tvListCheckAmountXML)
-        var nombre: TextView = itemView.findViewById(R.id.tvListCheckNameXML)
-        var precio: TextView = itemView.findViewById(R.id.tvListCheckPriceXML)
+        var cantidad: TextView = itemView.findViewById(R.id.tvListOrderOrderXML)
+        var nombre: TextView = itemView.findViewById(R.id.tvListOrderStatusXML)
+        var precio: TextView = itemView.findViewById(R.id.tvListOrderNameXML)
+        var total: TextView = itemView.findViewById(R.id.tvListOrderTotalXML)
     }
 }

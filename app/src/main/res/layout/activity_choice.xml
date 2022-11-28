@@ -6,6 +6,18 @@
     android:layout_height="match_parent"
     tools:context=".Choice">
 
+    <Button
+        android:id="@+id/btnChoiceOrdersXML"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="75dp"
+        android:text="@string/ver_pedidos"
+        app:icon="@drawable/ic_baseline_reorder_24"
+        app:layout_constraintBottom_toTopOf="@+id/llChoiceXML"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <LinearLayout
         android:id="@+id/llChoiceXML"
         android:layout_width="match_parent"
@@ -64,7 +76,7 @@
         android:id="@+id/btnChoiceSignOutXML"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="75dp"
         android:text="@string/cerrar_sesion"
         app:icon="@drawable/ic_baseline_person_24"
         app:layout_constraintBottom_toBottomOf="parent"

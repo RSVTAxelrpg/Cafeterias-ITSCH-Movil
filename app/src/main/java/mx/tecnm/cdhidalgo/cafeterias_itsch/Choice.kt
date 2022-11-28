@@ -11,15 +11,22 @@ import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 
 private lateinit var btnChoice1: Button
+private lateinit var btnOrders: Button
 private lateinit var btnSignOut: Button
 
 class Choice : AppCompatActivity() {
+
+    private lateinit var auth: FirebaseAuth
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_choice)
 
         btnChoice1 = findViewById(R.id.btnChoice1XML)
+        btnOrders = findViewById(R.id.btnChoiceOrdersXML)
         btnSignOut = findViewById(R.id.btnChoiceSignOutXML)
+
+        auth = Firebase.auth
 
         setup()
 
@@ -31,7 +38,10 @@ class Choice : AppCompatActivity() {
 
         if (user != null) {
             if (!user.isEmailVerified) {
-                showAlert("Correo no verificado, no podras realizar pedidos hasta verificar tu correo")
+                showAlert(
+                    "Advertencia",
+                    "Correo no verificado, no podras realizar pedidos hasta verificar tu correo"
+                )
             }
         }
     }
@@ -42,6 +52,16 @@ class Choice : AppCompatActivity() {
 
             val intent = Intent(this, Cafeteria1::class.java)
             startActivity(intent)
+        }
+
+        btnOrders.setOnClickListener {
+
+            if (auth.currentUser?.isEmailVerified == true) {
+                val intent = Intent(this, Order::class.java)
+                startActivity(intent)
+            } else {
+                showAlert("Error", "Usuario no verificado")
+            }
         }
 
         btnSignOut.setOnClickListener {
@@ -57,9 +77,9 @@ class Choice : AppCompatActivity() {
         }
     }
 
-    private fun showAlert(alert: String) {
+    private fun showAlert(title: String, alert: String) {
         val builder = AlertDialog.Builder(this)
-        builder.setTitle("Advertencia")
+        builder.setTitle(title)
         builder.setMessage(alert)
         builder.setPositiveButton("Aceptar", null)
         val dialog: AlertDialog = builder.create()

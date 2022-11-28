@@ -36,6 +36,10 @@ class AdapterMenu(private val menuList: ArrayList<ModelMenu>) :
 
             menu.cantidad = holder.cantidad.text.toString().toInt()
             holder.cantidad.text = menu.cantidad.toString()
+
+            holder.total.text = (menu.cantidad * menu.precio).toString()
+            menu.total = holder.total.text.toString().toInt()
+            holder.total.text = menu.total.toString()
         }
 
         holder.btnSubtract.setOnClickListener {
@@ -48,14 +52,13 @@ class AdapterMenu(private val menuList: ArrayList<ModelMenu>) :
 
                 menu.cantidad = holder.cantidad.text.toString().toInt()
                 holder.cantidad.text = menu.cantidad.toString()
+
+                holder.total.text = (menu.cantidad * menu.precio).toString()
+                menu.total = holder.total.text.toString().toInt()
+                holder.total.text = menu.total.toString()
             }
         }
 
-        /*holder.checkBox.setOnCheckedChangeListener { button, b ->
-            menu.Check = button.isChecked
-        }
-
-        holder.checkBox.isChecked = menu.Check*/
     }
 
     override fun getItemCount(): Int {
@@ -69,8 +72,8 @@ class AdapterMenu(private val menuList: ArrayList<ModelMenu>) :
         val btnSubtract: Button = itemView.findViewById(R.id.btnListViewSubtractXML)
 
         var cantidad: TextView = itemView.findViewById(R.id.tvListViewAmountXML)
-
-        var nombre: TextView = itemView.findViewById(R.id.tvListCheckNameXML)
-        var precio: TextView = itemView.findViewById(R.id.tvListCheckPriceXML)
+        var nombre: TextView = itemView.findViewById(R.id.tvListOrderStatusXML)
+        var precio: TextView = itemView.findViewById(R.id.tvListOrderNameXML)
+        var total: TextView = itemView.findViewById(R.id.tvListViewTotalXML)
     }
 }
