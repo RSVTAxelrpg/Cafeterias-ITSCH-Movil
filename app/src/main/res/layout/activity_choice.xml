@@ -6,69 +6,89 @@
     android:layout_height="match_parent"
     tools:context=".Choice">
 
-    <Button
-        android:id="@+id/btnChoiceOrdersXML"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="75dp"
-        android:text="@string/ver_pedidos"
-        app:icon="@drawable/ic_baseline_reorder_24"
-        app:layout_constraintBottom_toTopOf="@+id/llChoiceXML"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <LinearLayout
         android:id="@+id/llChoiceXML"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="16dp"
         android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/btnChoiceSignOutXML"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <TextView
-            android:id="@+id/tvChoice1XML"
-            android:layout_width="match_parent"
+        <LinearLayout
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/cafeteria1"
-            android:textAlignment="center"
-            android:textSize="34sp" />
+            android:orientation="vertical">
 
-        <ImageView
-            android:id="@+id/ivChoice1XML"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:clickable="true"
-            android:contentDescription="@string/cafeteria1"
-            tools:srcCompat="@tools:sample/avatars" />
+            <TextView
+                android:id="@+id/tvChoice1XML"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/cafeteria1"
+                android:textAlignment="center"
+                android:textSize="34sp" />
 
-        <Button
-            android:id="@+id/btnChoice1XML"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/cafeteria1" />
+            <ImageView
+                android:id="@+id/ivChoice1XML"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:clickable="true"
+                android:contentDescription="@string/cafeteria1"
+                app:srcCompat="@drawable/cafeteria1" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="10dp" />
+
+            <Button
+                android:id="@+id/btnChoice1XML"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/pedidos1"
+                android:textAlignment="center"
+                app:icon="@drawable/ic_baseline_reorder_24" />
+        </LinearLayout>
 
         <Space
             android:layout_width="match_parent"
             android:layout_height="50dp" />
 
-        <TextView
-            android:id="@+id/tvChoice2XML"
-            android:layout_width="match_parent"
+        <LinearLayout
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/cafeteria2"
-            android:textAlignment="center"
-            android:textSize="34sp" />
+            android:orientation="vertical">
 
-        <ImageView
-            android:id="@+id/ivChoice2XML"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            tools:srcCompat="@tools:sample/avatars" />
+            <TextView
+                android:id="@+id/tvChoice2XML"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/cafeteria2"
+                android:textAlignment="center"
+                android:textSize="34sp" />
+
+            <ImageView
+                android:id="@+id/ivChoice2XML"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:clickable="true"
+                android:contentDescription="@string/cafeteria2"
+                app:srcCompat="@drawable/cafeteria2" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="10dp" />
+
+            <Button
+                android:id="@+id/btnChoice2XML"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/pedidos2"
+                app:icon="@drawable/ic_baseline_reorder_24" />
+        </LinearLayout>
 
     </LinearLayout>
 

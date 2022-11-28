@@ -4,11 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Cafeteria1">
+    tools:context=".Cafeteria">
 
     <LinearLayout
         android:id="@+id/linearLayout"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="20dp"
@@ -24,7 +24,8 @@
             android:id="@+id/btnCafeteria1CheckXML"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/revisar_pedido" />
+            android:text="@string/revisar_pedido"
+            app:icon="@drawable/ic_baseline_checklist_24" />
     </LinearLayout>
 
     <LinearLayout
@@ -33,6 +34,7 @@
         android:layout_height="0dp"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
+        android:layout_marginBottom="20dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

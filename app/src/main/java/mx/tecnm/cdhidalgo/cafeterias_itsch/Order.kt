@@ -7,10 +7,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.Query
 import com.google.firebase.ktx.Firebase
-import mx.tecnm.cdhidalgo.cafeterias_itsch.adapter.AdapterMenu
 import mx.tecnm.cdhidalgo.cafeterias_itsch.adapter.AdapterOrder
-import mx.tecnm.cdhidalgo.cafeterias_itsch.model.ModelMenu
 import mx.tecnm.cdhidalgo.cafeterias_itsch.model.ModelOrder
 
 class Order : AppCompatActivity() {
@@ -29,6 +28,9 @@ class Order : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_order)
 
+        var collection = ""
+        collection = intent.getStringExtra("collection").toString()
+
         recyclerView = findViewById(R.id.rvOrderXML)
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.setHasFixedSize(true)
@@ -41,30 +43,31 @@ class Order : AppCompatActivity() {
 
         auth = Firebase.auth
 
-        setData()
+        setData(collection)
     }
 
-    private fun setData() {
+    private fun setData(collection: String) {
 
         var name = auth.currentUser?.displayName?.toLowerCase()
 
         db = FirebaseFirestore.getInstance()
-        db.collection("orders").get().addOnSuccessListener {
+        db.collection(collection).orderBy("entregado", Query.Direction.ASCENDING).get()
+            .addOnSuccessListener {
 
-            for (document in it) {
-                if (document.data.get("nombre") == name) {
-                    orderArrayList.add(
-                        ModelOrder(
-                            document.data.get("entregado").toString().toBoolean(),
-                            document.data.get("nombre").toString(),
-                            document.data.get("pedido").toString(),
-                            document.data.get("total").toString().toInt()
+                for (document in it) {
+                    if (document.data.get("nombre") == name) {
+                        orderArrayList.add(
+                            ModelOrder(
+                                document.data.get("entregado").toString().toBoolean(),
+                                document.data.get("nombre").toString(),
+                                document.data.get("pedido").toString(),
+                                document.data.get("total").toString().toInt()
+                            )
                         )
-                    )
+                    }
                 }
-            }
 
-            adapterOrder.notifyDataSetChanged()
-        }
+                adapterOrder.notifyDataSetChanged()
+            }
     }
 }

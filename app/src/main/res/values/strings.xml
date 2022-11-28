@@ -30,5 +30,9 @@
     <string name="realizar_pedido">Realizar pedido</string>
     <string name="revisar_pedido">Revisar pedido</string>
     <string name="ver_pedidos">Ver pedidos</string>
+    <string name="pedidos1">Pedidos cafeteria 1</string>
+    <string name="pedidos2">Pedidos cafeteria 2</string>
     <string name="total">Total: </string>
+
+    <string name="actualizar">Actualizar</string>
 </resources>

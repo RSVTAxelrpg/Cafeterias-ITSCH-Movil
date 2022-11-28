@@ -27,7 +27,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".Cafeteria1"
+            android:name=".Cafeteria"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"

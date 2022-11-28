@@ -36,6 +36,10 @@ class Check : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_check)
 
+        var collection = ""
+        collection = intent.getStringExtra("collection").toString()
+        println(collection)
+
         val list = intent.getParcelableArrayListExtra<ModelMenu>("list")
         val total = intent.getIntExtra("total", 0)
 
@@ -64,42 +68,55 @@ class Check : AppCompatActivity() {
 
         auth = Firebase.auth
 
-        setup(orderArrayList, total)
+        setup(collection, orderArrayList, total)
     }
 
-    private fun setup(order: ArrayList<ModelMenu>, total: Int) {
+    private fun setup(collection: String, order: ArrayList<ModelMenu>, total: Int) {
 
         btnMakeOrder.setOnClickListener {
 
-            var products = ""
-            for (i in order.indices) {
-                products += "/" + order[i].cantidad + ":" + order[i].nombre + "\n"
-            }
-            products = products.trimEnd()
-
-            var name = auth.currentUser?.displayName?.toLowerCase()
-            if (name != null) {
-                db.collection("orders").document().set(
-                    hashMapOf(
-                        "entregado" to false,
-                        "nombre" to name,
-                        "pedido" to products,
-                        "total" to total
-                    )
-                ).addOnCompleteListener {
-                    showAlert()
+            if (total > 0) {
+                var products = ""
+                for (i in order.indices) {
+                    products += "/" + order[i].cantidad + ":" + order[i].nombre + "\n"
                 }
+                products = products.trimEnd()
+
+                var name = auth.currentUser?.displayName?.toLowerCase()
+                if (name != null) {
+                    db.collection(collection).document().set(
+                        hashMapOf(
+                            "entregado" to false,
+                            "nombre" to name,
+                            "pedido" to products,
+                            "total" to total
+                        )
+                    ).addOnCompleteListener {
+                        showAlertOk()
+                    }
+                }
+            } else {
+                showAlertError()
             }
         }
     }
 
-    private fun showAlert() {
+    private fun showAlertOk() {
         val builder = AlertDialog.Builder(this)
         builder.setTitle("¡Listo!")
         builder.setMessage("¡Has realizado tu pedido correctamente!")
         builder.setPositiveButton("Aceptar", DialogInterface.OnClickListener { dialogInterface, i ->
             goChoice()
         })
+        val dialog: AlertDialog = builder.create()
+        dialog.show()
+    }
+
+    private fun showAlertError() {
+        val builder = AlertDialog.Builder(this)
+        builder.setTitle("Error")
+        builder.setMessage("No has seleccionado algun alimento")
+        builder.setPositiveButton("Aceptar", null)
         val dialog: AlertDialog = builder.create()
         dialog.show()
     }

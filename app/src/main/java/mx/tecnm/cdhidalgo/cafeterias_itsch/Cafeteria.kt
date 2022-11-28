@@ -3,7 +3,6 @@ package mx.tecnm.cdhidalgo.cafeterias_itsch
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
-import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -11,13 +10,14 @@ import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.Query
 import com.google.firebase.ktx.Firebase
 import mx.tecnm.cdhidalgo.cafeterias_itsch.adapter.AdapterMenu
 import mx.tecnm.cdhidalgo.cafeterias_itsch.model.ModelMenu
 
 private lateinit var btnCheck: Button
 
-class Cafeteria1 : AppCompatActivity() {
+class Cafeteria : AppCompatActivity() {
 
     private lateinit var adapterMenu: AdapterMenu
 
@@ -31,7 +31,11 @@ class Cafeteria1 : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_cafeteria1)
+        setContentView(R.layout.activity_cafeteria)
+
+        var collection = ""
+        collection = intent.getStringExtra("collection").toString()
+        println(collection)
 
         btnCheck = findViewById(R.id.btnCafeteria1CheckXML)
 
@@ -47,27 +51,28 @@ class Cafeteria1 : AppCompatActivity() {
 
         auth = Firebase.auth
 
-        setData()
+        setData(collection)
     }
 
-    private fun setData() {
+    private fun setData(collection: String) {
 
         db = FirebaseFirestore.getInstance()
-        db.collection("menu").get().addOnSuccessListener {
+        db.collection(collection).orderBy("nombre", Query.Direction.DESCENDING).get()
+            .addOnSuccessListener {
 
-            for (document in it) {
-                menuArrayList.add(
-                    0, ModelMenu(
-                        0,
-                        document.data.get("nombre").toString(),
-                        document.data.get("precio").toString().toInt(),
-                        0
+                for (document in it) {
+                    menuArrayList.add(
+                        0, ModelMenu(
+                            0,
+                            document.data.get("nombre").toString(),
+                            document.data.get("precio").toString().toInt(),
+                            0
+                        )
                     )
-                )
-            }
+                }
 
-            adapterMenu.notifyDataSetChanged()
-        }
+                adapterMenu.notifyDataSetChanged()
+            }
 
         btnCheck.setOnClickListener {
 
@@ -83,6 +88,11 @@ class Cafeteria1 : AppCompatActivity() {
                 val intent = Intent(this, Check::class.java)
                 intent.putExtra("list", menuArrayList)
                 intent.putExtra("total", total)
+                if (collection == "menu") {
+                    intent.putExtra("collection", "orders")
+                } else if (collection == "menu2") {
+                    intent.putExtra("collection", "orders2")
+                }
                 startActivity(intent)
             } else {
                 showAlert("Usuario no verificado")

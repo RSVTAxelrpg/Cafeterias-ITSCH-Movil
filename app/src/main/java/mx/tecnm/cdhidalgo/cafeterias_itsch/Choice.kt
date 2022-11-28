@@ -5,14 +5,18 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import android.widget.ImageView
 import androidx.appcompat.app.AlertDialog
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 
 private lateinit var btnChoice1: Button
-private lateinit var btnOrders: Button
+private lateinit var btnChoice2: Button
 private lateinit var btnSignOut: Button
+
+private lateinit var ivChoice1: ImageView
+private lateinit var ivChoice2: ImageView
 
 class Choice : AppCompatActivity() {
 
@@ -23,8 +27,11 @@ class Choice : AppCompatActivity() {
         setContentView(R.layout.activity_choice)
 
         btnChoice1 = findViewById(R.id.btnChoice1XML)
-        btnOrders = findViewById(R.id.btnChoiceOrdersXML)
+        btnChoice2 = findViewById(R.id.btnChoice2XML)
         btnSignOut = findViewById(R.id.btnChoiceSignOutXML)
+
+        ivChoice1 = findViewById(R.id.ivChoice1XML)
+        ivChoice2 = findViewById(R.id.ivChoice2XML)
 
         auth = Firebase.auth
 
@@ -50,14 +57,20 @@ class Choice : AppCompatActivity() {
 
         btnChoice1.setOnClickListener {
 
-            val intent = Intent(this, Cafeteria1::class.java)
-            startActivity(intent)
+            if (auth.currentUser?.isEmailVerified == true) {
+                val intent = Intent(this, Order::class.java)
+                intent.putExtra("collection", "orders")
+                startActivity(intent)
+            } else {
+                showAlert("Error", "Usuario no verificado")
+            }
         }
 
-        btnOrders.setOnClickListener {
+        btnChoice2.setOnClickListener {
 
             if (auth.currentUser?.isEmailVerified == true) {
                 val intent = Intent(this, Order::class.java)
+                intent.putExtra("collection", "orders2")
                 startActivity(intent)
             } else {
                 showAlert("Error", "Usuario no verificado")
@@ -73,6 +86,20 @@ class Choice : AppCompatActivity() {
 
             FirebaseAuth.getInstance().signOut()
             val intent = Intent(this, Login::class.java)
+            startActivity(intent)
+        }
+
+        ivChoice1.setOnClickListener {
+
+            val intent = Intent(this, Cafeteria::class.java)
+            intent.putExtra("collection", "menu")
+            startActivity(intent)
+        }
+
+        ivChoice2.setOnClickListener {
+
+            val intent = Intent(this, Cafeteria::class.java)
+            intent.putExtra("collection", "menu2")
             startActivity(intent)
         }
     }
