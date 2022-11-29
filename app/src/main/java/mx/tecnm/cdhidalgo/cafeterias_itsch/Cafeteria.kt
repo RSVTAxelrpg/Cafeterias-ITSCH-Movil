@@ -58,18 +58,20 @@ class Cafeteria : AppCompatActivity() {
         title = "Cafeteria"
 
         db = FirebaseFirestore.getInstance()
-        db.collection(collection).orderBy("nombre", Query.Direction.DESCENDING).get()
-            .addOnSuccessListener {
+        db.collection(collection).orderBy("nombre", Query.Direction.DESCENDING)
+            .addSnapshotListener { value, error ->
 
-                for (document in it) {
-                    menuArrayList.add(
-                        0, ModelMenu(
-                            0,
-                            document.data.get("nombre").toString(),
-                            document.data.get("precio").toString().toInt(),
-                            0
+                if (value != null) {
+                    for (document in value.documents) {
+                        menuArrayList.add(
+                            0, ModelMenu(
+                                0,
+                                document.get("nombre").toString(),
+                                document.get("precio").toString().toInt(),
+                                0
+                            )
                         )
-                    )
+                    }
                 }
 
                 adapterMenu.notifyDataSetChanged()

@@ -11,7 +11,7 @@ import mx.tecnm.cdhidalgo.cafeterias_itsch.R
 import mx.tecnm.cdhidalgo.cafeterias_itsch.model.ModelMenu
 import mx.tecnm.cdhidalgo.cafeterias_itsch.model.ModelOrder
 
-class AdapterOrder(private val menuList: ArrayList<ModelOrder>) :
+class AdapterOrder(private var menuList: List<ModelOrder>) :
     RecyclerView.Adapter<AdapterOrder.MyViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {

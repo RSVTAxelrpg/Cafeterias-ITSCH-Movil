@@ -1,7 +1,9 @@
 package mx.tecnm.cdhidalgo.cafeterias_itsch
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Button
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.auth.FirebaseAuth
@@ -28,9 +30,6 @@ class Order : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_order)
 
-        var collection = ""
-        collection = intent.getStringExtra("collection").toString()
-
         recyclerView = findViewById(R.id.rvOrderXML)
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.setHasFixedSize(true)
@@ -43,6 +42,9 @@ class Order : AppCompatActivity() {
 
         auth = Firebase.auth
 
+        var collection = ""
+        collection = intent.getStringExtra("collection").toString()
+
         setData(collection)
     }
 
@@ -51,7 +53,9 @@ class Order : AppCompatActivity() {
         var name = auth.currentUser?.displayName?.toLowerCase()
 
         db = FirebaseFirestore.getInstance()
-        db.collection(collection).orderBy("entregado", Query.Direction.ASCENDING).get()
+        db.collection(collection)
+            .orderBy("entregado", Query.Direction.ASCENDING)
+            .get()
             .addOnSuccessListener {
 
                 for (document in it) {

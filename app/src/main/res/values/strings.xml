@@ -1,11 +1,11 @@
 <resources>
-    <string name="app_name">Cafeterias ITSCH</string>
+    <string name="app_name">Cafeterías ITSCH</string>
     <string name="prefs_file">mx.tecnm.cdhidalgo.cafeterias_itsch.PREFERENCE_FILE_KEY</string>
 
     <string name="ingresar">Ingresar</string>
     <string name="ingresar_google">Ingresar con Google</string>
     <string name="ingresar_correo">Ingresar con Correo</string>
-    <string name="ingresar_anonimo">Ingresar con usuario anonimo</string>
+    <string name="ingresar_anonimo">Ingresar con usuario anónimo</string>
 
     <string name="nombre">Ingrese su nombre</string>
     <string name="apellidos">Ingrese sus apellidos</string>
@@ -16,13 +16,13 @@
     <string name="registrarse">Registrarse</string>
     <string name="registrar">Registrar</string>
 
-    <string name="cerrar_sesion">Cerrar Sesion</string>
+    <string name="cerrar_sesion">Cerrar Sesión</string>
 
-    <string name="con_cuenta">¿Ya tienes cuenta? ¡Toca aqui!</string>
-    <string name="sin_cuenta">¿No tienes cuenta? ¡Toca aqui!</string>
+    <string name="con_cuenta">¿Ya tienes cuenta? ¡Toca aquí!</string>
+    <string name="sin_cuenta">¿No tienes cuenta? ¡Toca aquí!</string>
 
-    <string name="cafeteria1">Cafeteria 1</string>
-    <string name="cafeteria2">Cafeteria 2</string>
+    <string name="cafeteria1">Cafetería 1</string>
+    <string name="cafeteria2">Cafetería 2</string>
 
     <string name="Suma">+</string>
     <string name="Resta">-</string>
@@ -30,8 +30,8 @@
     <string name="realizar_pedido">Realizar pedido</string>
     <string name="revisar_pedido">Revisar pedido</string>
     <string name="ver_pedidos">Ver pedidos</string>
-    <string name="pedidos1">Pedidos cafeteria 1</string>
-    <string name="pedidos2">Pedidos cafeteria 2</string>
+    <string name="pedidos1">Pedidos cafetería 1</string>
+    <string name="pedidos2">Pedidos cafetería 2</string>
     <string name="total">Total: </string>
 
     <string name="actualizar">Actualizar</string>
