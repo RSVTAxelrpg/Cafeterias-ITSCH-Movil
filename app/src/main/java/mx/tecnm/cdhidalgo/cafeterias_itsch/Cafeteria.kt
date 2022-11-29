@@ -35,7 +35,6 @@ class Cafeteria : AppCompatActivity() {
 
         var collection = ""
         collection = intent.getStringExtra("collection").toString()
-        println(collection)
 
         btnCheck = findViewById(R.id.btnCafeteria1CheckXML)
 
@@ -51,10 +50,12 @@ class Cafeteria : AppCompatActivity() {
 
         auth = Firebase.auth
 
-        setData(collection)
+        setup(collection)
     }
 
-    private fun setData(collection: String) {
+    private fun setup(collection: String) {
+
+        title = "Cafeteria"
 
         db = FirebaseFirestore.getInstance()
         db.collection(collection).orderBy("nombre", Query.Direction.DESCENDING).get()

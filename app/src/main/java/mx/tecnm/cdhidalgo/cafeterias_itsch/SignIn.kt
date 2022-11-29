@@ -107,6 +107,7 @@ class SignIn : AppCompatActivity() {
                     )
 
                     val intent = Intent(this, Choice::class.java)
+                    finish()
                     startActivity(intent)
 
                 }.addOnFailureListener {

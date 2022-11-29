@@ -35,21 +35,18 @@ class Choice : AppCompatActivity() {
 
         auth = Firebase.auth
 
-        setup()
-
         session()
+
+        setup()
     }
 
     private fun session() {
-        val user = Firebase.auth.currentUser
 
-        if (user != null) {
-            if (!user.isEmailVerified) {
-                showAlert(
-                    "Advertencia",
-                    "Correo no verificado, no podras realizar pedidos hasta verificar tu correo"
-                )
-            }
+        if (!auth.currentUser?.isEmailVerified!!) {
+            showAlert(
+                "Advertencia",
+                "Correo no verificado, no podras realizar pedidos hasta verificar tu correo"
+            )
         }
     }
 

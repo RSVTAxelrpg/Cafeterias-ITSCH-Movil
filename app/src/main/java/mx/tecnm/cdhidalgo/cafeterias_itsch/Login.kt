@@ -7,6 +7,7 @@ import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
@@ -31,8 +32,13 @@ private val GOOGLE_SIGN_IN = 100
 class Login : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
+
+        val screenSplash = installSplashScreen()
+
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
+
+        screenSplash.setKeepOnScreenCondition { false }
 
         btnAnonymous = findViewById(R.id.btnLoginAnonymousXML)
         btnEmail = findViewById(R.id.btnLoginEmailXML)
@@ -42,22 +48,26 @@ class Login : AppCompatActivity() {
 
         auth = Firebase.auth
 
-        setup()
-
         session()
+
+        setup()
     }
 
     private fun session() {
+
         val prefs = getSharedPreferences(getString(R.string.prefs_file), Context.MODE_PRIVATE)
         val email = prefs.getString("email", null)
 
         if (email != null) {
             val intent = Intent(this, Choice::class.java)
+            finish()
             startActivity(intent)
         }
     }
 
     private fun setup() {
+
+        title = "Ingresar"
 
         btnAnonymous.setOnClickListener {
 
@@ -125,6 +135,7 @@ class Login : AppCompatActivity() {
                         )
 
                         val intent = Intent(this, Choice::class.java)
+                        finish()
                         startActivity(intent)
 
                     }.addOnFailureListener {

@@ -38,6 +38,19 @@ class LoginEmail : AppCompatActivity() {
         auth = Firebase.auth
 
         setup()
+
+        session()
+    }
+
+    private fun session() {
+
+        val prefs = getSharedPreferences(getString(R.string.prefs_file), Context.MODE_PRIVATE)
+        val email = prefs.getString("email", null)
+
+        if (email != null) {
+            val intent = Intent(this, Choice::class.java)
+            startActivity(intent)
+        }
     }
 
     private fun setup() {
@@ -50,11 +63,13 @@ class LoginEmail : AppCompatActivity() {
             } else if (etPassword.text.isEmpty()) {
                 showAlert("La contraseña esta vacia")
             } else {
+
                 auth.signInWithEmailAndPassword(
                     etEmail.text.toString(),
                     etPassword.text.toString()
                 )
                     .addOnSuccessListener {
+
                         val prefs =
                             getSharedPreferences(
                                 getString(R.string.prefs_file),
@@ -64,6 +79,7 @@ class LoginEmail : AppCompatActivity() {
                         prefs.apply()
 
                         val intent = Intent(this, Choice::class.java)
+                        finish()
                         startActivity(intent)
                     }.addOnFailureListener {
                         showAlert(it.message.toString())

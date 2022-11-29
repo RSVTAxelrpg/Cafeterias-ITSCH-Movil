@@ -13,4 +13,14 @@
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
     </style>
+
+    <style name="Theme.App.Starting" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenBackground">@color/teal_200</item>
+        <!--Tamaño de 240dp por 240dp
+        Tamaño de 288dp por 288dp sin background-->
+        <item name="windowSplashScreenAnimatedIcon">@drawable/cafeteria1</item>
+        <item name="windowSplashScreenAnimationDuration">300</item>
+        <item name="postSplashScreenTheme">@style/Theme.CafeteriasITSCH</item>
+
+    </style>
 </resources>
