@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Login">
+    android:background="@color/uno"
+    tools:context=".Home">
 
     <LinearLayout
         android:id="@+id/llLoginXML"
@@ -19,10 +20,14 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
-            android:id="@+id/ivLoginXML"
+            android:id="@+id/imageView2"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            tools:srcCompat="@tools:sample/avatars" />
+            android:layout_height="250dp"
+            app:srcCompat="@drawable/cafe2" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="50dp" />
 
         <TextView
             android:id="@+id/tvLoginXML"
@@ -30,7 +35,13 @@
             android:layout_height="wrap_content"
             android:text="@string/ingresar"
             android:textAlignment="center"
-            android:textSize="34sp" />
+            android:textColor="@color/dos"
+            android:textSize="34sp"
+            android:textStyle="bold" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="10dp" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnLoginGoogleXML"
@@ -38,22 +49,44 @@
             android:layout_height="wrap_content"
             android:drawableLeft="@drawable/googleg_standard_color_18"
             android:text="@string/ingresar_google"
-            android:textColor="#000000"
-            app:backgroundTint="#FFFFFF" />
+            android:textColor="@color/uno"
+            app:backgroundTint="@color/white" />
 
-        <Button
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="10dp" />
+
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/btnLoginEmailXML"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/ingresar_correo"
-            app:icon="@drawable/ic_baseline_email_24" />
+            android:textColor="@color/uno"
+            android:textColorHighlight="@color/uno"
+            android:textColorHint="@color/uno"
+            android:textColorLink="@color/uno"
+            android:textCursorDrawable="@color/uno"
+            app:backgroundTint="@color/dos"
+            app:icon="@drawable/ic_baseline_email_24"
+            app:iconTint="@color/uno" />
 
-        <Button
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="10dp" />
+
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/btnLoginAnonymousXML"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/ingresar_anonimo"
-            app:icon="@drawable/ic_baseline_person_24" />
+            android:textColor="@color/uno"
+            app:backgroundTint="@color/dos"
+            app:icon="@drawable/ic_baseline_person_24"
+            app:iconTint="@color/uno" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="10dp" />
 
         <TextView
             android:id="@+id/tvLoginSignInXML"
@@ -63,6 +96,8 @@
             android:minHeight="48dp"
             android:text="@string/sin_cuenta"
             android:textAlignment="center"
+            android:textColor="@color/dos"
             android:textSize="20sp" />
     </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

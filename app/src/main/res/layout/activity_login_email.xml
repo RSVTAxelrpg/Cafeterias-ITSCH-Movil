@@ -19,6 +19,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            app:srcCompat="@drawable/cafe2" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="50dp" />
+
         <TextView
             android:id="@+id/tvLoginEmailXML"
             android:layout_width="match_parent"

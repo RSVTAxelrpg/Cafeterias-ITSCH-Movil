@@ -29,16 +29,12 @@ private val db = FirebaseFirestore.getInstance()
 
 private val GOOGLE_SIGN_IN = 100
 
-class Login : AppCompatActivity() {
+class Home : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
-        val screenSplash = installSplashScreen()
-
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_login)
-
-        screenSplash.setKeepOnScreenCondition { false }
+        setContentView(R.layout.activity_home)
 
         btnAnonymous = findViewById(R.id.btnLoginAnonymousXML)
         btnEmail = findViewById(R.id.btnLoginEmailXML)

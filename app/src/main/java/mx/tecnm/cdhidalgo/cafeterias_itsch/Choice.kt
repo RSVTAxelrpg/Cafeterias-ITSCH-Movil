@@ -52,6 +52,8 @@ class Choice : AppCompatActivity() {
 
     private fun setup() {
 
+        title = "Selecciona una cafetería"
+
         btnChoice1.setOnClickListener {
 
             if (auth.currentUser?.isEmailVerified == true) {
@@ -82,7 +84,7 @@ class Choice : AppCompatActivity() {
             prefs.apply()
 
             FirebaseAuth.getInstance().signOut()
-            val intent = Intent(this, Login::class.java)
+            val intent = Intent(this, Home::class.java)
             startActivity(intent)
         }
 

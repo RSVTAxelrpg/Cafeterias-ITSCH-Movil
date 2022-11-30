@@ -40,6 +40,8 @@ class Check : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_check)
 
+        title = "Revisa tu pedido"
+
         var collection = ""
         collection = intent.getStringExtra("collection").toString()
 

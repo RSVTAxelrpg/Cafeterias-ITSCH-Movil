@@ -61,7 +61,7 @@ class Cafeteria : AppCompatActivity() {
     @RequiresApi(Build.VERSION_CODES.O)
     private fun setup(collection: String) {
 
-        title = "Cafeteria"
+        title = "Cafetería"
 
         db = FirebaseFirestore.getInstance()
         db.collection(collection)

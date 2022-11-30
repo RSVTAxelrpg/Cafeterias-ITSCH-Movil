@@ -45,10 +45,12 @@ class Order : AppCompatActivity() {
         var collection = ""
         collection = intent.getStringExtra("collection").toString()
 
-        setData(collection)
+        setup(collection)
     }
 
-    private fun setData(collection: String) {
+    private fun setup(collection: String) {
+
+        title = "Pedidos"
 
         var name = auth.currentUser?.displayName?.toLowerCase()
 

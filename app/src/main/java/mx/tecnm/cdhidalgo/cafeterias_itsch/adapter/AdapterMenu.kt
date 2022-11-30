@@ -1,13 +1,11 @@
 package mx.tecnm.cdhidalgo.cafeterias_itsch.adapter
 
-import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import mx.tecnm.cdhidalgo.cafeterias_itsch.Login
 import mx.tecnm.cdhidalgo.cafeterias_itsch.R
 import mx.tecnm.cdhidalgo.cafeterias_itsch.model.ModelMenu
 

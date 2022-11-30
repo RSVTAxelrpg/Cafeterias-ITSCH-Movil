@@ -10,17 +10,21 @@
         <item name="colorSecondaryVariant">@color/black</item>
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
-        <item name="android:statusBarColor">@color/black</item>
+        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
     </style>
 
-    <style name="Theme.App.Starting" parent="Theme.SplashScreen">
-        <!--Tamaño de 240dp por 240dp
+    <!--Tamaño de 240dp por 240dp
         Radio de 260dp
         Tamaño de 288dp por 288dp sin background-->
+    <style name="Theme.App.Starting" parent="Theme.SplashScreen">
+
         <item name="windowSplashScreenBackground">@color/uno</item>
-        <item name="windowSplashScreenAnimatedIcon">@drawable/logo</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/cafe2</item>
         <item name="windowSplashScreenAnimationDuration">1000</item>
         <item name="postSplashScreenTheme">@style/Theme.CafeteriasITSCH</item>
+        <item name="textAppearanceButton">@attr/textAppearanceButton</item>
     </style>
+
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar"></style>
 </resources>

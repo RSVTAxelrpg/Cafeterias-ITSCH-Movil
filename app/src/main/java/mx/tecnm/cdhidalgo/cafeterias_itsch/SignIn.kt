@@ -54,6 +54,8 @@ class SignIn : AppCompatActivity() {
 
     private fun setup() {
 
+        title = "Registro"
+
         btnSignIn.setOnClickListener {
 
             if (etName.text.isEmpty()) {
@@ -117,7 +119,7 @@ class SignIn : AppCompatActivity() {
         }
 
         tvLogin.setOnClickListener {
-            val intent = Intent(this, Login::class.java)
+            val intent = Intent(this, Home::class.java)
             startActivity(intent)
         }
     }

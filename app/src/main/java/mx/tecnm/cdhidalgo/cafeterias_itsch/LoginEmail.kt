@@ -55,6 +55,8 @@ class LoginEmail : AppCompatActivity() {
 
     private fun setup() {
 
+        title = "Ingresar con email"
+
         btnLogin.setOnClickListener {
             if (etEmail.text.isEmpty()) {
                 showAlert("El correo esta vacio")
