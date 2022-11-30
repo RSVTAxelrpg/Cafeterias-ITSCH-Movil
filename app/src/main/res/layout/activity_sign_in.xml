@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/uno"
     tools:context=".SignIn">
 
     <LinearLayout
@@ -24,7 +25,13 @@
             android:layout_height="wrap_content"
             android:text="@string/registrar"
             android:textAlignment="center"
-            android:textSize="34sp" />
+            android:textColor="@color/dos"
+            android:textColorHighlight="@color/dos"
+            android:textColorHint="@color/dos"
+            android:textColorLink="@color/dos"
+            android:textCursorDrawable="@color/dos"
+            android:textSize="34sp"
+            android:textStyle="bold" />
 
         <EditText
             android:id="@+id/etSignInNameXML"
@@ -33,7 +40,12 @@
             android:ems="10"
             android:hint="@string/nombre"
             android:inputType="textPersonName"
-            android:minHeight="48dp" />
+            android:minHeight="48dp"
+            android:textColor="@color/dos"
+            android:textColorHighlight="@color/dos"
+            android:textColorHint="@color/dos"
+            android:textColorLink="@color/dos"
+            android:textCursorDrawable="@color/dos" />
 
         <EditText
             android:id="@+id/etSignInLastNameXML"
@@ -42,7 +54,12 @@
             android:ems="10"
             android:hint="@string/apellidos"
             android:inputType="textPersonName"
-            android:minHeight="48dp" />
+            android:minHeight="48dp"
+            android:textColor="@color/dos"
+            android:textColorHighlight="@color/dos"
+            android:textColorHint="@color/dos"
+            android:textColorLink="@color/dos"
+            android:textCursorDrawable="@color/dos" />
 
         <EditText
             android:id="@+id/etSignInEmailXML"
@@ -51,7 +68,12 @@
             android:ems="10"
             android:hint="@string/correo"
             android:inputType="textEmailAddress"
-            android:minHeight="48dp" />
+            android:minHeight="48dp"
+            android:textColor="@color/dos"
+            android:textColorHighlight="@color/dos"
+            android:textColorHint="@color/dos"
+            android:textColorLink="@color/dos"
+            android:textCursorDrawable="@color/dos" />
 
         <EditText
             android:id="@+id/etSignInEmailConfXML"
@@ -60,7 +82,12 @@
             android:ems="10"
             android:hint="@string/correo_rep"
             android:inputType="textEmailAddress"
-            android:minHeight="48dp" />
+            android:minHeight="48dp"
+            android:textColor="@color/dos"
+            android:textColorHighlight="@color/dos"
+            android:textColorHint="@color/dos"
+            android:textColorLink="@color/dos"
+            android:textCursorDrawable="@color/dos" />
 
         <EditText
             android:id="@+id/etSignInPasswordXML"
@@ -69,7 +96,12 @@
             android:ems="10"
             android:hint="@string/contraseña"
             android:inputType="textPassword"
-            android:minHeight="48dp" />
+            android:minHeight="48dp"
+            android:textColor="@color/dos"
+            android:textColorHighlight="@color/dos"
+            android:textColorHint="@color/dos"
+            android:textColorLink="@color/dos"
+            android:textCursorDrawable="@color/dos" />
 
         <EditText
             android:id="@+id/etSignInPasswordConfXML"
@@ -78,14 +110,25 @@
             android:ems="10"
             android:hint="@string/contraseña_rep"
             android:inputType="textPassword"
-            android:minHeight="48dp" />
+            android:minHeight="48dp"
+            android:textColor="@color/dos"
+            android:textColorHighlight="@color/dos"
+            android:textColorHint="@color/dos"
+            android:textColorLink="@color/dos"
+            android:textCursorDrawable="@color/dos" />
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/btnSignInXML"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/registrarse"
-            app:icon="@drawable/ic_baseline_app_registration_24" />
+            android:textColor="@color/uno"
+            android:textColorHighlight="@color/uno"
+            android:textColorHint="@color/uno"
+            android:textCursorDrawable="@color/uno"
+            app:backgroundTint="@color/dos"
+            app:icon="@drawable/ic_baseline_app_registration_24"
+            app:iconTint="@color/uno" />
 
         <TextView
             android:id="@+id/tvSignInLoginXML"
@@ -95,6 +138,11 @@
             android:minHeight="48dp"
             android:text="@string/con_cuenta"
             android:textAlignment="center"
+            android:textColor="@color/dos"
+            android:textColorHighlight="@color/dos"
+            android:textColorHint="@color/dos"
+            android:textColorLink="@color/dos"
+            android:textCursorDrawable="@color/dos"
             android:textSize="20sp" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

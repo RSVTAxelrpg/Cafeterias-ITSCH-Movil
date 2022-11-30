@@ -5,12 +5,14 @@ import android.os.Parcelable
 
 data class ModelMenu(
     var cantidad: Int = 0,
+    var fecha: String? = "",
     var nombre: String? = "",
     var precio: Int = 0,
-    var total: Int = 0
-) : Parcelable {
+    var total: Int = 0,
+):Parcelable {
     constructor(parcel: Parcel) : this(
         parcel.readInt(),
+        parcel.readString(),
         parcel.readString(),
         parcel.readInt(),
         parcel.readInt()
@@ -19,6 +21,7 @@ data class ModelMenu(
 
     override fun writeToParcel(parcel: Parcel, flags: Int) {
         parcel.writeInt(cantidad)
+        parcel.writeString(fecha)
         parcel.writeString(nombre)
         parcel.writeInt(precio)
         parcel.writeInt(total)

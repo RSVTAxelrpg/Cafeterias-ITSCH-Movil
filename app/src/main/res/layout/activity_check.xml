@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/uno"
     tools:context=".Check">
 
     <LinearLayout
@@ -25,7 +26,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Total: "
-            android:textSize="24sp" />
+            android:textColor="@color/dos"
+            android:textSize="24sp"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/tvCheckTotalXML"
@@ -33,14 +36,19 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="0"
-            android:textSize="24sp" />
+            android:textColor="@color/dos"
+            android:textSize="24sp"
+            android:textStyle="bold" />
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/btnCheckMakeOrderXML"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/realizar_pedido"
-            app:icon="@drawable/ic_baseline_check_24" />
+            android:textColor="@color/uno"
+            app:backgroundTint="@color/dos"
+            app:icon="@drawable/ic_baseline_check_24"
+            app:iconTint="@color/uno" />
 
     </LinearLayout>
 

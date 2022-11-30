@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/uno"
     tools:context=".Choice">
 
     <LinearLayout
@@ -30,7 +31,13 @@
                 android:layout_height="wrap_content"
                 android:text="@string/cafeteria1"
                 android:textAlignment="center"
-                android:textSize="34sp" />
+                android:textColor="@color/dos"
+                android:textColorHighlight="@color/dos"
+                android:textColorHint="@color/dos"
+                android:textColorLink="@color/dos"
+                android:textCursorDrawable="@color/dos"
+                android:textSize="34sp"
+                android:textStyle="bold" />
 
             <ImageView
                 android:id="@+id/ivChoice1XML"
@@ -44,13 +51,21 @@
                 android:layout_width="match_parent"
                 android:layout_height="10dp" />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnChoice1XML"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/pedidos1"
                 android:textAlignment="center"
-                app:icon="@drawable/ic_baseline_reorder_24" />
+                android:textColor="@color/uno"
+                android:textColorHighlight="@color/uno"
+                android:textColorHint="@color/uno"
+                android:textColorLink="@color/uno"
+                android:textCursorDrawable="@color/uno"
+                app:backgroundTint="@color/dos"
+                app:icon="@drawable/ic_baseline_reorder_24"
+                app:iconTint="@color/uno"
+                app:iconTintMode="src_in" />
         </LinearLayout>
 
         <Space
@@ -68,7 +83,13 @@
                 android:layout_height="wrap_content"
                 android:text="@string/cafeteria2"
                 android:textAlignment="center"
-                android:textSize="34sp" />
+                android:textColor="@color/dos"
+                android:textColorHighlight="@color/dos"
+                android:textColorHint="@color/dos"
+                android:textColorLink="@color/dos"
+                android:textCursorDrawable="@color/dos"
+                android:textSize="34sp"
+                android:textStyle="bold" />
 
             <ImageView
                 android:id="@+id/ivChoice2XML"
@@ -82,23 +103,38 @@
                 android:layout_width="match_parent"
                 android:layout_height="10dp" />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnChoice2XML"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/pedidos2"
-                app:icon="@drawable/ic_baseline_reorder_24" />
+                android:textColor="@color/uno"
+                android:textColorHighlight="@color/uno"
+                android:textColorHint="@color/uno"
+                android:textColorLink="@color/uno"
+                android:textCursorDrawable="@color/uno"
+                app:backgroundTint="@color/dos"
+                app:icon="@drawable/ic_baseline_reorder_24"
+                app:iconTint="@color/uno"
+                app:iconTintMode="src_in" />
         </LinearLayout>
 
     </LinearLayout>
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/btnChoiceSignOutXML"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="75dp"
         android:text="@string/cerrar_sesion"
+        android:textColor="@color/uno"
+        android:textColorHighlight="@color/uno"
+        android:textColorHint="@color/uno"
+        android:textColorLink="@color/uno"
+        android:textCursorDrawable="@color/uno"
+        app:backgroundTint="@color/dos"
         app:icon="@drawable/ic_baseline_person_24"
+        app:iconTint="@color/uno"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

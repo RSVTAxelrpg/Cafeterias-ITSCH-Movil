@@ -2,9 +2,11 @@ package mx.tecnm.cdhidalgo.cafeterias_itsch
 
 import android.content.DialogInterface
 import android.content.Intent
+import android.os.Build
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -15,6 +17,7 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.ktx.Firebase
 import mx.tecnm.cdhidalgo.cafeterias_itsch.adapter.AdapterCheck
 import mx.tecnm.cdhidalgo.cafeterias_itsch.model.ModelMenu
+import java.time.LocalDateTime
 
 private lateinit var btnMakeOrder: Button
 
@@ -32,13 +35,13 @@ class Check : AppCompatActivity() {
 
     private lateinit var recyclerView: RecyclerView
 
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_check)
 
         var collection = ""
         collection = intent.getStringExtra("collection").toString()
-        println(collection)
 
         val list = intent.getParcelableArrayListExtra<ModelMenu>("list")
         val total = intent.getIntExtra("total", 0)
@@ -71,43 +74,56 @@ class Check : AppCompatActivity() {
         setup(collection, orderArrayList, total)
     }
 
-    private fun setup(collection: String, order: ArrayList<ModelMenu>, total: Int) {
+    @RequiresApi(Build.VERSION_CODES.O)
+    private fun setup(collection: String, orderArrayList: ArrayList<ModelMenu>, total: Int) {
 
         btnMakeOrder.setOnClickListener {
-
-            if (total > 0) {
-                var products = ""
-                for (i in order.indices) {
-                    products += "/" + order[i].cantidad + ":" + order[i].nombre + "\n"
-                }
-                products = products.trimEnd()
-
-                var name = auth.currentUser?.displayName?.toLowerCase()
-                if (name != null) {
-                    db.collection(collection).document().set(
-                        hashMapOf(
-                            "entregado" to false,
-                            "nombre" to name,
-                            "pedido" to products,
-                            "total" to total
-                        )
-                    ).addOnCompleteListener {
-                        showAlertOk()
-                    }
-                }
-            } else {
-                showAlertError()
-            }
+            showAlertOk(collection, orderArrayList, total)
         }
     }
 
-    private fun showAlertOk() {
+    @RequiresApi(Build.VERSION_CODES.O)
+    private fun setData(collection: String, order: ArrayList<ModelMenu>, total: Int) {
+
+        if (total > 0) {
+            var products = ""
+            for (i in order.indices) {
+                products += "/" + order[i].cantidad + ":" + order[i].nombre + "\n"
+            }
+            products = products.trimEnd()
+
+            var name = auth.currentUser?.displayName?.toLowerCase()
+            if (name != null) {
+                db.collection(collection).document(LocalDateTime.now().toString()).set(
+                    hashMapOf(
+                        "entregado" to false,
+                        "fecha" to LocalDateTime.now().toString(),
+                        "nombre" to name,
+                        "pedido" to products,
+                        "total" to total
+                    )
+                ).addOnCompleteListener {
+                    showAlertOk(collection, orderArrayList, total)
+                }
+            }
+        } else {
+            showAlertError()
+        }
+
+        val intent = Intent(this, Choice::class.java)
+        finish()
+        startActivity(intent)
+    }
+
+    @RequiresApi(Build.VERSION_CODES.O)
+    private fun showAlertOk(collection: String, orderArrayList: ArrayList<ModelMenu>, total: Int) {
         val builder = AlertDialog.Builder(this)
-        builder.setTitle("¡Listo!")
-        builder.setMessage("¡Has realizado tu pedido correctamente!")
+        builder.setTitle("¡Advertencia!")
+        builder.setMessage("¿Estas seguro que quieres realizar tu pedido?")
         builder.setPositiveButton("Aceptar", DialogInterface.OnClickListener { dialogInterface, i ->
-            goChoice()
+            setData(collection, orderArrayList, total)
         })
+        builder.setNegativeButton("Cancelar", null)
         val dialog: AlertDialog = builder.create()
         dialog.show()
     }
@@ -119,10 +135,5 @@ class Check : AppCompatActivity() {
         builder.setPositiveButton("Aceptar", null)
         val dialog: AlertDialog = builder.create()
         dialog.show()
-    }
-
-    private fun goChoice() {
-        val intent = Intent(this, Choice::class.java)
-        startActivity(intent)
     }
 }

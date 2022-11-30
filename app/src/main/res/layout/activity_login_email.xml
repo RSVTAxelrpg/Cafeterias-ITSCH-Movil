@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/uno"
     tools:context=".LoginEmail">
 
     <LinearLayout
@@ -24,7 +25,9 @@
             android:layout_height="wrap_content"
             android:text="@string/ingresar"
             android:textAlignment="center"
-            android:textSize="34sp" />
+            android:textColor="@color/dos"
+            android:textSize="34sp"
+            android:textStyle="bold" />
 
         <EditText
             android:id="@+id/etLoginEmailEmailXML"
@@ -33,7 +36,13 @@
             android:ems="10"
             android:hint="@string/correo"
             android:inputType="textEmailAddress"
-            android:minHeight="48dp" />
+            android:minHeight="48dp"
+            android:shadowColor="@color/dos"
+            android:textColor="@color/dos"
+            android:textColorHighlight="@color/dos"
+            android:textColorHint="@color/dos"
+            android:textColorLink="@color/dos"
+            android:textCursorDrawable="@color/dos" />
 
         <EditText
             android:id="@+id/etLoginEmailPasswordXML"
@@ -42,13 +51,23 @@
             android:ems="10"
             android:hint="@string/contraseña"
             android:inputType="textPassword"
-            android:minHeight="48dp" />
+            android:minHeight="48dp"
+            android:textColor="@color/dos"
+            android:textColorHighlight="@color/dos"
+            android:textColorHint="@color/dos"
+            android:textColorLink="@color/dos"
+            android:textCursorDrawable="@color/dos" />
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/btnLoginEmailLoginXML"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/ingresar" />
+            android:text="@string/ingresar"
+            android:textColor="@color/uno"
+            app:backgroundTint="@color/dos"
+            app:icon="@drawable/ic_baseline_person_24"
+            app:iconTint="@color/uno"
+            app:iconTintMode="src_in" />
 
         <TextView
             android:id="@+id/tvLoginEmailSignInXML"
@@ -56,6 +75,11 @@
             android:layout_height="wrap_content"
             android:text="@string/sin_cuenta"
             android:textAlignment="center"
+            android:textColor="@color/dos"
+            android:textColorHighlight="@color/dos"
+            android:textColorHint="@color/dos"
+            android:textColorLink="@color/dos"
+            android:textCursorDrawable="@color/dos"
             android:textSize="20sp" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

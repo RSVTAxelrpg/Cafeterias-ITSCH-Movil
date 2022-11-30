@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/uno"
     tools:context=".Cafeteria">
 
     <LinearLayout
@@ -20,12 +21,19 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/btnCafeteria1CheckXML"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/revisar_pedido"
-            app:icon="@drawable/ic_baseline_checklist_24" />
+            android:textColor="@color/uno"
+            android:textColorHighlight="@color/cinco"
+            android:textColorHint="@color/cinco"
+            android:textColorLink="@color/cinco"
+            android:textCursorDrawable="@color/cinco"
+            app:backgroundTint="@color/dos"
+            app:icon="@drawable/ic_baseline_checklist_24"
+            app:iconTint="@color/uno" />
     </LinearLayout>
 
     <LinearLayout

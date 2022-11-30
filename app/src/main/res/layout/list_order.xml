@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    app:cardElevation="8dp"
+    android:layout_margin="16dp"
+    app:cardBackgroundColor="@color/dos"
     app:cardCornerRadius="8dp"
-    android:layout_margin="16dp">
+    app:cardElevation="8dp">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -25,6 +26,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Estado: "
+                android:textColor="@color/uno"
                 android:textSize="24sp"
                 android:textStyle="bold" />
 
@@ -34,6 +36,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:text="Prueba"
+                android:textColor="@color/uno"
                 android:textSize="24sp"
                 android:textStyle="bold" />
 
@@ -49,6 +52,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Nombre: "
+                android:textColor="@color/uno"
                 android:textSize="24sp"
                 android:textStyle="bold" />
 
@@ -58,6 +62,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:text="Prueba"
+                android:textColor="@color/uno"
                 android:textSize="24sp" />
 
         </LinearLayout>
@@ -72,6 +77,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Pedido: "
+                android:textColor="@color/uno"
                 android:textSize="24sp"
                 android:textStyle="bold" />
 
@@ -80,6 +86,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Prueba"
+                android:textColor="@color/uno"
                 android:textSize="24sp" />
 
         </LinearLayout>
@@ -95,6 +102,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Total: "
+                android:textColor="@color/uno"
                 android:textSize="24sp"
                 android:textStyle="bold" />
 
@@ -104,6 +112,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Prueba"
+                android:textColor="@color/uno"
                 android:textSize="24sp" />
         </LinearLayout>
 

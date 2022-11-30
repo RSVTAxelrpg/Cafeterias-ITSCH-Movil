@@ -1,8 +1,10 @@
 package mx.tecnm.cdhidalgo.cafeterias_itsch
 
 import android.content.Intent
+import android.os.Build
 import android.os.Bundle
 import android.widget.Button
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -14,6 +16,8 @@ import com.google.firebase.firestore.Query
 import com.google.firebase.ktx.Firebase
 import mx.tecnm.cdhidalgo.cafeterias_itsch.adapter.AdapterMenu
 import mx.tecnm.cdhidalgo.cafeterias_itsch.model.ModelMenu
+import java.time.LocalDate
+import java.time.LocalDateTime
 
 private lateinit var btnCheck: Button
 
@@ -29,6 +33,7 @@ class Cafeteria : AppCompatActivity() {
 
     private lateinit var recyclerView: RecyclerView
 
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_cafeteria)
@@ -53,12 +58,14 @@ class Cafeteria : AppCompatActivity() {
         setup(collection)
     }
 
+    @RequiresApi(Build.VERSION_CODES.O)
     private fun setup(collection: String) {
 
         title = "Cafeteria"
 
         db = FirebaseFirestore.getInstance()
-        db.collection(collection).orderBy("nombre", Query.Direction.DESCENDING)
+        db.collection(collection)
+            .orderBy("nombre", Query.Direction.DESCENDING)
             .addSnapshotListener { value, error ->
 
                 if (value != null) {
@@ -66,6 +73,7 @@ class Cafeteria : AppCompatActivity() {
                         menuArrayList.add(
                             0, ModelMenu(
                                 0,
+                                LocalDateTime.now().toString(),
                                 document.get("nombre").toString(),
                                 document.get("precio").toString().toInt(),
                                 0

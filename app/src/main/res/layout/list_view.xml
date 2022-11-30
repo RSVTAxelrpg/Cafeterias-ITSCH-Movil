@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    app:cardElevation="8dp"
+    android:layout_margin="16dp"
+    app:cardBackgroundColor="@color/dos"
     app:cardCornerRadius="8dp"
-    android:layout_margin="16dp">
+    app:cardElevation="8dp">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -25,6 +26,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Nombre: "
+                android:textColor="@color/uno"
+                android:textColorHighlight="@color/cinco"
+                android:textColorHint="@color/cinco"
+                android:textColorLink="@color/cinco"
+                android:textCursorDrawable="@color/cinco"
                 android:textSize="24sp"
                 android:textStyle="bold" />
 
@@ -34,6 +40,11 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:text="Prueba"
+                android:textColor="@color/uno"
+                android:textColorHighlight="@color/cinco"
+                android:textColorHint="@color/cinco"
+                android:textColorLink="@color/cinco"
+                android:textCursorDrawable="@color/cinco"
                 android:textSize="24sp" />
 
         </LinearLayout>
@@ -48,6 +59,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Precio: "
+                android:textColor="@color/uno"
+                android:textColorHighlight="@color/cinco"
+                android:textColorHint="@color/cinco"
+                android:textColorLink="@color/cinco"
+                android:textCursorDrawable="@color/cinco"
                 android:textSize="24sp"
                 android:textStyle="bold" />
 
@@ -57,6 +73,11 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:text="Prueba"
+                android:textColor="@color/uno"
+                android:textColorHighlight="@color/cinco"
+                android:textColorHint="@color/cinco"
+                android:textColorLink="@color/cinco"
+                android:textCursorDrawable="@color/cinco"
                 android:textSize="24sp" />
 
         </LinearLayout>
@@ -66,13 +87,19 @@
             android:layout_height="match_parent"
             android:orientation="horizontal">
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnListViewSubtractXML"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="@string/Resta"
-                android:textSize="20sp" />
+                android:textColor="@color/uno"
+                android:textColorHighlight="@color/cinco"
+                android:textColorHint="@color/cinco"
+                android:textColorLink="@color/cinco"
+                android:textCursorDrawable="@color/cinco"
+                android:textSize="20sp"
+                app:backgroundTint="@color/cuatro" />
 
             <Space
                 android:layout_width="25dp"
@@ -86,6 +113,11 @@
                 android:layout_weight="1"
                 android:text="0"
                 android:textAlignment="center"
+                android:textColor="@color/uno"
+                android:textColorHighlight="@color/cinco"
+                android:textColorHint="@color/cinco"
+                android:textColorLink="@color/cinco"
+                android:textCursorDrawable="@color/cinco"
                 android:textSize="24sp" />
 
             <Space
@@ -93,13 +125,19 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1" />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnListViewAddXML"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="@string/Suma"
-                android:textSize="20sp" />
+                android:textColor="@color/uno"
+                android:textColorHighlight="@color/cinco"
+                android:textColorHint="@color/cinco"
+                android:textColorLink="@color/cinco"
+                android:textCursorDrawable="@color/cinco"
+                android:textSize="20sp"
+                app:backgroundTint="@color/cuatro" />
 
         </LinearLayout>
 
@@ -113,6 +151,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Total: "
+                android:textColor="@color/uno"
+                android:textColorHighlight="@color/cinco"
+                android:textColorHint="@color/cinco"
+                android:textColorLink="@color/cinco"
+                android:textCursorDrawable="@color/cinco"
                 android:textSize="24sp"
                 android:textStyle="bold" />
 
@@ -121,6 +164,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="0"
+                android:textColor="@color/uno"
+                android:textColorHighlight="@color/cinco"
+                android:textColorHint="@color/cinco"
+                android:textColorLink="@color/cinco"
+                android:textCursorDrawable="@color/cinco"
                 android:textSize="24sp" />
         </LinearLayout>
 
